@@ -2,13 +2,15 @@
   'use strict';
   
   angular.module('LunchCheck', [])
-  .controller('LunchController', LunchController);
+  .controller('LunchCheckController', LunchCheckController);
   
-  LunchController.$inject = ['$scope'];
-  function LunchController($scope) {
+  LunchCheckController.$inject = ['$scope'];
+  
+  function LunchCheckController($scope) {
+    $scope.list = '';
     $scope.check = function () {
       let txt = $scope.list;
-      let txtArr = txt.val().split(',');
+      let txtArr = txt.split(',');
       for (let i = 0; i < txtArr.length; i++ ) {
         if (txtArr[i].trim() === '' ) {//check if any item is empty
           $scope.name = 'Please enter data first';
