@@ -20,6 +20,7 @@
       if (txtArr.length >= 1 && txtArr.length <= 3) {//Enjoy!
         $scope.name = 'Enjoy!';
       } else {//too much
+        
         $scope.name = 'Too much!';
       }
     }
