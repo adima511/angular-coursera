@@ -9,7 +9,6 @@
 
   function FoundItemsDirective () {
     let ddo = {
-
       templateUrl: "loader/loader.html",
       scope: {
         found: "<items",
@@ -21,9 +20,9 @@
     }
     return ddo;
   }
+  
   function NothingFoundLink (scope, element, attrs, controller)  {
     scope.$watch('found', function (newValue, oldValue) {
-      // show when new value is [] and not on load
       if(newValue !== undefined && newValue.length == 0) {
         element.find('h3').css('display', 'block');
       } else {
@@ -50,6 +49,7 @@
       MenuSearchService.removeItem(index.index);
     }
   }
+
   MenuSearchService.$inject = ['$http', 'dataUrl'];
   function MenuSearchService ($http, dataUrl) {
     let service = this;
@@ -75,7 +75,4 @@
       foundItems.splice(index, 1);
     }
   } 
-
-
-  
 })();
