@@ -1,0 +1,9 @@
+<h4>Categories</h4>
+<a ui-sref="home" class="btn btn-primary">Go home</a>
+<ul>
+  <li ui-sref="items({category: category.short_name})" 
+      ng-repeat="category in categories.categoriesData"
+      class="list-item">
+    {{ category.name}}
+  </li>
+</ul>

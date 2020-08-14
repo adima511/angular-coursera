@@ -1,0 +1,11 @@
+body {
+  width: 600px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.list-item:hover {
+  display: inline-block;
+  background-color: #8b00ff;
+  color:#ffffff;
+  cursor: pointer;
+} 

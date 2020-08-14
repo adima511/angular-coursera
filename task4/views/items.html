@@ -1,0 +1,6 @@
+<h4>Items</h4>
+<a ui-sref="home"  class="btn btn-primary">Go home</a> 
+<a ui-sref="categories"  class="btn btn-primary">Go to categories</a> 
+<ul>
+  <li ng-repeat="item in items.itemsData"><b>{{item.name}}:</b><br/> {{item.description}}</li>
+</ul>
