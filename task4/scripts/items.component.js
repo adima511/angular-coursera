@@ -4,14 +4,16 @@
   .component("items",{
     templateUrl: "views/items.html",
     bindings: {
-      itemsData: "<"
+      itemsData: "<",
+      category: "<"
     }
   })
   .controller("ItemsController", ItemsController);
 
-  ItemsController.$inject = ["itemsData"];
-  function ItemsController (itemsData) {
-    this.itemsData = itemsData.data["menu_items"];
+  ItemsController.$inject = ["itemsData", "categoryName"];
+  function ItemsController (itemsData, categoryName) {
+    this.itemsData = itemsData.data["menu_items"]; 
+    this.categoryName = categoryName;
   }
 
 })();

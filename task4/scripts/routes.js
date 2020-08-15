@@ -26,12 +26,19 @@
     })
 
     .state("items", {
-      url: "/categories/{category}_items/",
+      url: "/categories/{categoryShort}_items/",
       templateUrl: "views/items.html",
       controller: "ItemsController as items", 
+      params: {
+        categoryShort: null,
+        categoryName:null
+      },
       resolve: {
         itemsData: ["MenuDataService","$stateParams", function (MenuDataService, $stateParams) {
-          return MenuDataService.getItemsForCategory($stateParams.category);
+          return MenuDataService.getItemsForCategory($stateParams.categoryShort);
+        }],
+        categoryName: ["$stateParams", function ($stateParams) {
+          return $stateParams.categoryName;
         }]
       }
     });
