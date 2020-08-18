@@ -1,0 +1,63 @@
+<div class="container">
+  <h3 class="col-md-4 col-md-offset-4">Sign up to get our newsletter weekly!</h3>
+  <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <form name="regForm" ng-controller="SignUpController as regVal" novalidate>
+          <div class="form-group">
+            <input class="form-control" name="firstName" placeholder="First name"
+              ng-model="regVal.firstName"
+              required
+              minlength="2"
+              >
+              
+              <span class="text-primary" ng-if="(regForm.firstName.$error.required || regForm.firstName.$error.minlength)
+                && regForm.firstName.$touched">Valid first name is required</span>
+              </span>
+          </div>
+          <div class="form-group">
+            <input class="form-control" name="lastname" placeholder="Last name"
+             ng-model="regVal.lastName"
+              required
+              minlength="2"
+            >
+            <span class="text-primary" ng-if="(regForm.lastname.$error.required || regForm.lastname.$error.minlength)
+                && regForm.lastname.$touched">Valid last name is required</span>
+            </span>
+          </div>
+          <div class="form-group">
+            <input class="form-control" name="email" type="email" placeholder="E-mail"
+            ng-model="regVal.email"
+            required
+            >
+            <span class="text-primary" ng-if="regForm.email.$invalid && regForm.email.$touched">
+              Must be a valid email address: handle@domain format
+            </span>
+          </div>
+          <div class="form-group">
+            <input class="form-control" name="phone" placeholder="Phone number ###-###-####"
+            ng-model="regVal.phone"
+            pattern="(\d{3})-(\d{3})-(\d{4})"
+            >
+            <span class="text-primary" ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+              Phone must be in the format ###-###-####.
+            </span>
+          </div>
+          <div class="form-group">
+            <input class="form-control" name="favourite" placeholder="Favourite menu number (short_name)"
+            ng-model="regVal.favourite">
+          </div>
+          <button ng-click="regVal.signup()" ng-disabled="regForm.$invalid"  class="btn btn-warning col-md-4 col-md-offset-4">Submit</button>
+          <br>
+          <br>
+          <div class="h3" ng-if="regVal.exists">
+            Your information has been saved!
+          </div>
+          
+          <div class="h3" ng-if="regVal.isMenuCategoryNotFound">
+            No such menu number exists!
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+

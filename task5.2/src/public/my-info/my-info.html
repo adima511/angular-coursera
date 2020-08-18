@@ -1,0 +1,36 @@
+<div class="container" >
+  <div id="not-registered" ng-if="!myInfo.isRegistered">
+    <h3>Not Signed Up Yet, <a ui-sref="public.signup">Sign Up Now!</a></h3>
+  </div>
+
+
+  <div ng-if="myInfo.isRegistered">
+    <div id="user-info">
+      <h3>User Infomation:</h3>
+      <br>
+      <div>
+        Name: {{myInfo.user.firstName }} {{myInfo.user.lastName}}
+      </div>
+      <div>
+        Email: {{myInfo.user.email}}
+      </div>
+      <div>
+        Phone Number: {{myInfo.user.phone}}
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div>
+      <h3>Dish Recommendation:</h3>
+      <br>
+      <br>
+      
+      <menu-item ng-repeat="menuItem in myInfo.menuItems.menu_items"
+                 menu-item="menuItem">
+      </menu-item>
+    </div>
+  </div>
+</div>
